@@ -8,19 +8,30 @@ import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { HttpClientModule } from '@angular/common/http'
+import { from } from 'rxjs';
+import { FormsModule } from '@angular/forms'
+import { OrderModule } from 'ngx-order-pipe';
+import { EditarComponent } from './editar/editar.component';
+import { DeletarComponent } from './deletar/deletar.component'
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FeedComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    EditarComponent,
+    DeletarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
+    OrderModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
