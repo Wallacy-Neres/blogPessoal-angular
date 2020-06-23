@@ -36,10 +36,10 @@ export class PostagemService {
   }
 
   deletePostagem(id: number) {
-    return this.http.delete(`http://localhost:8080/postagem${id}`, this.token)
+    return this.http.delete(`http://localhost:8080/postagem/${id}`, this.token)
   }
 
   findByTitulo(titulo: string) {
-    return this.http.get(`http://localhost:8080/postagem${titulo}`, this.token)
+    return this.http.get(`http://localhost:8080/postagem/${titulo}`, this.token)
   }
 }

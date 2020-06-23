@@ -28,5 +28,10 @@ ul.social-network {
  .faInstagram:hover{
   color: #C13584;
  }
- 
+
+ footer {
+  position: relative;
+  bottom:-200px;
+  width: 100%;
+}
   
