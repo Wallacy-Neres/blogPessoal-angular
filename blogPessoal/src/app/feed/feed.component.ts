@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostagemService } from '../service/postagem.service';
 import { Postagem } from '../model/Postagem';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,21 +10,30 @@ import { Postagem } from '../model/Postagem';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
+  nome: string = localStorage.getItem('nome')
 
-  key = 'data'
-  reverse = true
+  key = 'data';
 
-  listaPostagens: Postagem[]
+  reverse = true;
 
-  postagem: Postagem = new Postagem
+  listaPostagens: Postagem[];
 
-  alerta: boolean = false
+  postagem: Postagem = new Postagem;
 
-  titulo: string
+  alerta: boolean = false;
 
-  constructor(private postagemService: PostagemService) { }
+  titulo: string;
+
+  constructor(private postagemService: PostagemService, private router: Router) { }
 
   ngOnInit() {
+
+    let token = localStorage.getItem('token');
+
+    if (token == null) {
+      alert('Faça o login antes de acessa a pagina feed');
+      this.router.navigate(['/login']);
+    }
 
     this.findallPostagens()
 
